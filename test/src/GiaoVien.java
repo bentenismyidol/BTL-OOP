@@ -5,12 +5,12 @@ public class GiaoVien extends CanBo{
 
     private static double tienTietDay = 45000;
 
-    public GiaoVien(int maCanBo,String hoten, String donViCongTac, double heSoLuong, double phuCap,int soTietDay) {
-        super(maCanBo, hoten, donViCongTac, heSoLuong, phuCap);
-        this.soTietDay = soTietDay;
-    }
     public GiaoVien() {
-      super();
+
+    }
+    public GiaoVien(String hoTen, String donViCongTac, double heSoLuong, double phuCap,int soTietDay) {
+        super(hoTen, donViCongTac, heSoLuong, phuCap);
+        this.soTietDay = soTietDay;
     }
 
     public int getSoTietDay() {
@@ -30,10 +30,10 @@ public class GiaoVien extends CanBo{
     }
 
     public double tinhLuong() {
-        return (long) super.getHeSoLuong() * getLuongCoBan() + super.getPhuCap() + soTietDay*getTienTietDay();
+        return super.getHeSoLuong() * getLuongCoBan() + super.getPhuCap() + soTietDay*getTienTietDay();
     }
 
     public String inTTin() {
-        return "Mã cán bộ:" + this.getMaCanBo() + "\nTên giáo viên là: " + this.getHoten() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của giáo viên là: " + this.tinhLuong();
+        return "Tên giáo viên là: " + this.gethoTen() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của giáo viên là: " + this.tinhLuong();
     }
 }

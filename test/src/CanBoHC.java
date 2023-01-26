@@ -1,4 +1,3 @@
-import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class CanBoHC extends CanBo{
@@ -6,14 +5,13 @@ public class CanBoHC extends CanBo{
 
     private static double tienNgayCong = 200000;
 
-    public CanBoHC(int maCanBo,String hoten, String donViCongTac, double heSoLuong, double phuCap,int soNgayCong) {
-        super(maCanBo,hoten, donViCongTac, heSoLuong, phuCap);
-        this.soNgayCong = soNgayCong;
-        //this.tienNgayCong = tienNgayCong;
-    }
-
     public CanBoHC() {
         super();
+    }
+
+    public CanBoHC(String hoTen, String donViCongTac, double heSoLuong, double phuCap,int soNgayCong) {
+        super(hoTen, donViCongTac, heSoLuong, phuCap);
+        this.soNgayCong = soNgayCong;
     }
 
     public int getSoNgayCong() {
@@ -37,6 +35,6 @@ public class CanBoHC extends CanBo{
     }
 
     public String inTTin() {
-        return "Mã cán bộ:" + this.getMaCanBo() + "\nTên nhân viên hành chính là:" + this.getHoten() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của nhân viên hành chính là: " + BigDecimal.valueOf(this.tinhLuong())+"";
+        return "Tên nhân viên hành chính là:" + this.gethoTen() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của nhân viên hành chính là: " + this.tinhLuong();
     }
 }
