@@ -50,7 +50,7 @@ public class QuanLy {
         return dscb;
     }
 
-    public void timKiem(String ten, String dvct, double hsl) {
+    public static void timKiem(String ten, String dvct, double hsl) {
         for (int i=0;i< dscb.size();i++) {
             if (ten.equalsIgnoreCase(dscb.get(i).gethoTen()) ||
                     dvct.equalsIgnoreCase(dscb.get(i).getDonViCongTac()) ||
@@ -59,12 +59,10 @@ public class QuanLy {
                 System.out.println(dscb.get(i).gethoTen());
             }
         }
-
     }
-
     public void inDanhSach() {
         for (CanBo i : dscb) {
-            System.out.println(i.inTTin());
+            System.out.println(i.inTTin()+"\n");
         }
     }
 

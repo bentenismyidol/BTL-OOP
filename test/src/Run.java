@@ -58,7 +58,6 @@ public class Run {
                     }
                     break;
                 case 2:
-
                     ql.inDanhSach();
                     break;
                 case 3:
@@ -155,10 +154,12 @@ public class Run {
                     for (int i=0;i< ql.getDscb().size();i++) {
                         if (ql.getDscb().get(i).tinhLuong() > 10000000) {
                             System.out.println("Cán bộ có lương trên 10 triệu là:");
-                            System.out.println(ql.getDscb().get(i).gethoTen());
+                            System.out.println(ql.getDscb().get(i).inTTin()+"\n");
                         }
                     }
                 break;
+                case 8:
+
             }
         }
         while (isRunning);

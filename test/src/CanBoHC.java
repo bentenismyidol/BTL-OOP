@@ -35,6 +35,6 @@ public class CanBoHC extends CanBo{
     }
 
     public String inTTin() {
-        return "Tên nhân viên hành chính là:" + this.gethoTen() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của nhân viên hành chính là: " + this.tinhLuong();
+        return "Tên nhân viên hành chính là:" + this.gethoTen() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của nhân viên hành chính là: " + Long.valueOf((long )this.tinhLuong());
     }
 }

@@ -34,6 +34,6 @@ public class GiaoVien extends CanBo{
     }
 
     public String inTTin() {
-        return "Tên giáo viên là: " + this.gethoTen() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của giáo viên là: " + this.tinhLuong();
+        return "Tên giáo viên là: " + this.gethoTen() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của giáo viên là: " + Long.valueOf((long )this.tinhLuong());
     }
 }
