@@ -150,7 +150,15 @@ public class Run {
                     ql.timKiem(ten,dvct,hsl);
                     break;
                 case 7:
-
+                    System.out.println("-------------------");
+                    String wtf7 = sc.nextLine();
+                    for (int i=0;i< ql.getDscb().size();i++) {
+                        if (ql.getDscb().get(i).tinhLuong() > 10000000) {
+                            System.out.println("Cán bộ có lương trên 10 triệu là:");
+                            System.out.println(ql.getDscb().get(i).gethoTen());
+                        }
+                    }
+                break;
             }
         }
         while (isRunning);

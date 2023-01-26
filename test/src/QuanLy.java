@@ -8,6 +8,10 @@ public class QuanLy {
     private String tenTruong;
     private static int soCanBo;
 
+    public static ArrayList<CanBo> getDscb() {
+        return dscb;
+    }
+
     public QuanLy() {}
 
     public QuanLy(String tenTruong) {
@@ -46,12 +50,6 @@ public class QuanLy {
         return dscb;
     }
 
-    public void inDanhSach() {
-        for (CanBo i : dscb) {
-            System.out.println(i.inTTin());
-        }
-    }
-
     public void timKiem(String ten, String dvct, double hsl) {
         for (int i=0;i< dscb.size();i++) {
             if (ten.equalsIgnoreCase(dscb.get(i).gethoTen()) ||
@@ -63,7 +61,13 @@ public class QuanLy {
         }
 
     }
-    
+
+    public void inDanhSach() {
+        for (CanBo i : dscb) {
+            System.out.println(i.inTTin());
+        }
+    }
+
 
 
 
