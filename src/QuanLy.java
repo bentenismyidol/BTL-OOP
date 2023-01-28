@@ -5,19 +5,15 @@ import java.util.Iterator;
 public class QuanLy {
 
     private static ArrayList<CanBo> dscb = new ArrayList<>();
-    private String tenTruong;
-    private static int soCanBo;
 
-    public QuanLy(String tenTruong) {
-        this.tenTruong = tenTruong;
-    }
 
     public QuanLy() {
 
     }
-
+    public static ArrayList<CanBo> getDscb() {
+        return dscb;
+    }
     public static boolean themCanBo(CanBo cb) {
-        soCanBo++;
         dscb.add(cb);
         return true;
     }
@@ -47,7 +43,16 @@ public class QuanLy {
         }
         return dscb;
     }
-
+    public static void timKiem(String ten, String dvct, double hsl) {
+        for (int i=0;i< dscb.size();i++) {
+            if (ten.equalsIgnoreCase(dscb.get(i).getHoten()) ||
+                    dvct.equalsIgnoreCase(dscb.get(i).getDonViCongTac()) ||
+                    hsl == dscb.get(i).getHeSoLuong())
+            {
+                System.out.println(dscb.get(i).getHoten());
+            }
+        }
+    }
     public void inDanhSach() {
         for (CanBo i : dscb) {
             System.out.println(i.inTTin());

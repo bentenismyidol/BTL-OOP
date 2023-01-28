@@ -9,25 +9,14 @@ public class Run {
         Scanner sc = new Scanner(System.in);
         boolean isRunning = true;
         QuanLy ql = new QuanLy();
-        try {
-            Class.forName(Driver.class.getName());
-            Connection connection = DriverManager.getConnection("jbdc:mysql://localhost:3306/sacatevedb", "root","sacateve02");
-            Statement statement = connection.createStatement();
-
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM giaovien");
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString("maCB"));
-            }
-
-        } catch( Exception e) {
-            e.printStackTrace();
-        }
              do {
-                System.out.println("them can bo");
-                System.out.println("in thong tin danh sach");
-                System.out.println("xoa can bo");
-                System.out.println("sua thong tin cua can bo:");
-                System.out.println("sua thong tin luong:");
+                System.out.println("1-thêm cán bộ");
+                System.out.println("2-in thông tin danh sách");
+                System.out.println("3-xóa cán bộ");
+                System.out.println("4-sửa thông tin cán bộ");
+                System.out.println("5-sửa thông tin lương");
+                 System.out.println("Tìm kiếm cán bộ");
+                 System.out.println("Thống kê nhân viên lương hơn 10 triệu: ");
                 int chon = sc.nextInt();
                 switch (chon) {
                     case 1:
@@ -148,6 +137,28 @@ public class Run {
                             double tnc_moi = sc.nextDouble();
                             CanBoHC.setTienNgayCong(tnc_moi);
                         }
+                    case 6:
+                        System.out.println("-------------------");
+                        String wtf6 = sc.nextLine();
+                        System.out.println("Tìm kiếm: ");
+                        System.out.println("Nhập tên cán bộ:");
+                        String ten = sc.nextLine();
+                        System.out.println("Nhập đơn vị công tác");
+                        String dvct = sc.nextLine();
+                        System.out.println("Nhập hệ số lương");
+                        double hsl = sc.nextDouble();
+                        ql.timKiem(ten,dvct,hsl);
+                        break;
+                    case 7:
+                        System.out.println("-------------------");
+                        String wtf7 = sc.nextLine();
+                        for (int i=0;i< ql.getDscb().size();i++) {
+                            if (ql.getDscb().get(i).tinhLuong() > 10000000) {
+                                System.out.println("Cán bộ có lương trên 10 triệu là:");
+                                System.out.println(ql.getDscb().get(i).inTTin()+"\n");
+                            }
+                        }
+                        break;
                 }
             } while (isRunning);
     }
