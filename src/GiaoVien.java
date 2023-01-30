@@ -30,7 +30,7 @@ public class GiaoVien extends CanBo{
     }
 
     public double tinhLuong() {
-        return (long) super.getHeSoLuong() * getLuongCoBan() + super.getPhuCap() + soTietDay*getTienTietDay();
+        return Long.valueOf((long) (super.getHeSoLuong() * getLuongCoBan() + super.getPhuCap() + soTietDay*getTienTietDay()));
     }
 
     public String inTTin() {

@@ -33,7 +33,7 @@ public class CanBoHC extends CanBo{
     }
 
     public double tinhLuong() {
-        return super.getHeSoLuong()*getLuongCoBan() + super.getPhuCap() + soNgayCong*getTienNgayCong();
+        return Long.valueOf((long) (super.getHeSoLuong()*getLuongCoBan() + super.getPhuCap() + soNgayCong*getTienNgayCong()));
     }
 
     public String inTTin() {
