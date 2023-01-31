@@ -5,21 +5,16 @@ import java.util.stream.Collectors;
 public class QuanLy {
 
     private static ArrayList<CanBo> dscb = new ArrayList<>();
-    private String tenTruong;
-    private static int soCanBo;
 
     public static ArrayList<CanBo> getDscb() {
         return dscb;
     }
 
+
+
     public QuanLy() {}
 
-    public QuanLy(String tenTruong) {
-        this.tenTruong = tenTruong;
-    }
-
     public static boolean themCanBo(CanBo cb) {
-        soCanBo++;
         dscb.add(cb);
         return true;
     }

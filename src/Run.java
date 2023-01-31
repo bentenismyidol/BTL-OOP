@@ -9,15 +9,23 @@ public class Run {
         Scanner sc = new Scanner(System.in);
         boolean isRunning = true;
         QuanLy ql = new QuanLy();
-             do {
-                    System.out.println("");
-                    System.out.println("1-thêm cán bộ");
-                    System.out.println("2-in thông tin danh sách");
-                    System.out.println("3-xóa cán bộ");
-                    System.out.println("4-sửa thông tin cán bộ");
-                    System.out.println("5-sửa thông tin lương");
-                    System.out.println("6-Tìm kiếm cán bộ");
-                    System.out.println("7-Thống kê nhân viên lương hơn 10 triệu:\n");
+        do {
+            System.out.println("-------------------");
+            String tn1 = sc.nextLine();
+            System.out.println("Nhap thang:");
+            String thangNam = sc.nextLine();
+            menu:
+            do {
+                System.out.println("--Du lieu thang:" + thangNam);
+                System.out.println("1-thêm cán bộ");
+                System.out.println("2-in thông tin danh sách");
+                System.out.println("3-xóa cán bộ");
+                System.out.println("4-sửa thông tin cán bộ");
+                System.out.println("5-sửa thông tin lương");
+                System.out.println("6-Tìm kiếm cán bộ");
+                System.out.println("7-Thống kê nhân viên lương hơn 10 triệu:\n");
+                System.out.println("8-luu data");
+                System.out.println("9-xem data");
                 int chon = sc.nextInt();
                 switch (chon) {
                     case 1:
@@ -62,7 +70,6 @@ public class Run {
                         }
                         break;
                     case 2:
-
                         ql.inDanhSach();
                         break;
                     case 3:
@@ -111,6 +118,7 @@ public class Run {
                             int sua_songaycong = sc.nextInt();
                             ql.suaCanBoHC(magv, sua_tengv, sua_dvct, sua_hsl, sua_phucap, sua_songaycong);
                         }
+                        break;
                     case 5:
                         System.out.println("-------------------");
                         String wtf5 = sc.nextLine();
@@ -137,6 +145,7 @@ public class Run {
                             double tnc_moi = sc.nextDouble();
                             CanBoHC.setTienNgayCong(tnc_moi);
                         }
+                        break;
                     case 6:
                         System.out.println("-------------------");
                         String wtf6 = sc.nextLine();
@@ -159,7 +168,18 @@ public class Run {
                             }
                         }
                         break;
+                    case 8:
+                        ql.luuDATA(thangNam);
+                        break menu;
+                    case 9:
+                        System.out.println("-------------------");
+                        String wtf9 = sc.nextLine();
+                        System.out.println("xem du lieu thang:");
+                        String thang = sc.nextLine();
+                        ql.xemDATA(thang);
+                        break;
                 }
             } while (isRunning);
+        }while (isRunning);
     }
 }

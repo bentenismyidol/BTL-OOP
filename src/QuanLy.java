@@ -1,24 +1,24 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.sql.SQLOutput;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class QuanLy {
 
-    private static ArrayList<CanBo> dscb = new ArrayList<>();
+    private ArrayList<CanBo> dscb = new ArrayList<>();
 
-
+    Map<String,ArrayList<CanBo>> DATA = new HashMap<>();
     public QuanLy() {
 
     }
-    public static ArrayList<CanBo> getDscb() {
+    public ArrayList<CanBo> getDscb() {
         return dscb;
     }
-    public static boolean themCanBo(CanBo cb) {
+    public boolean themCanBo(CanBo cb) {
         dscb.add(cb);
         return true;
     }
 
-    public static ArrayList<CanBo> xoaCanbo(String ten) {
+    public ArrayList<CanBo> xoaCanbo(String ten) {
         for (int i=0;i< dscb.size();i++) {
             if (ten.equalsIgnoreCase(dscb.get(i).getHoten())) {
                 dscb.remove(dscb.get(i));
@@ -27,7 +27,7 @@ public class QuanLy {
         }
         return dscb;
     }
-    public static ArrayList suaGiaoVien(int macanbo,String ten,String dvct,double hsl,double pc,int std) {
+    public ArrayList suaGiaoVien(int macanbo,String ten,String dvct,double hsl,double pc,int std) {
         for (int i=0;i< dscb.size();i++) {
             if (macanbo == dscb.get(i).getMaCanBo()) {
               dscb.set(i,new GiaoVien(macanbo,ten,dvct,hsl,pc,std));
@@ -35,7 +35,7 @@ public class QuanLy {
         }
         return dscb;
     }
-    public static ArrayList suaCanBoHC(int macanbo,String ten,String dvct,double hsl,double pc,int snc) {
+    public ArrayList suaCanBoHC(int macanbo,String ten,String dvct,double hsl,double pc,int snc) {
         for (int i=0;i< dscb.size();i++) {
             if (macanbo == dscb.get(i).getMaCanBo()) {
                 dscb.set(i,new CanBoHC(macanbo,ten,dvct,hsl,pc,snc));
@@ -43,13 +43,25 @@ public class QuanLy {
         }
         return dscb;
     }
-    public static void timKiem(String ten, String dvct, double hsl) {
+    public void timKiem(String ten, String dvct, double hsl) {
         for (int i=0;i< dscb.size();i++) {
-            if (ten.equalsIgnoreCase(dscb.get(i).getHoten()) ||
-                    dvct.equalsIgnoreCase(dscb.get(i).getDonViCongTac()) ||
+            if (ten.equalsIgnoreCase(dscb.get(i).getHoten()) &&
+                    dvct.equalsIgnoreCase(dscb.get(i).getDonViCongTac()) &&
                     hsl == dscb.get(i).getHeSoLuong())
             {
                 System.out.println(dscb.get(i).getHoten());
+            }
+        }
+    }
+    public Map luuDATA(String monthyear) {
+            DATA.put(monthyear, new ArrayList<>());
+        return DATA;
+    }
+    public void xemDATA(String monthyear) {
+        for (Map.Entry<String,ArrayList<CanBo>> m : DATA.entrySet()) {
+            if (monthyear.equalsIgnoreCase(m.getKey())) {
+                System.out.println("Giu lieu thang:" + m.getKey());
+                System.out.println(m.getValue());
             }
         }
     }
