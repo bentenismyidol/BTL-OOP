@@ -23,9 +23,10 @@ public class Run {
                 System.out.println("4-sửa thông tin cán bộ");
                 System.out.println("5-sửa thông tin lương");
                 System.out.println("6-Tìm kiếm cán bộ");
-                System.out.println("7-Thống kê nhân viên lương hơn 10 triệu:\n");
+                System.out.println("7-Thống kê nhân viên lương hơn 10 triệu:");
                 System.out.println("8-luu data");
                 System.out.println("9-xem data");
+                System.out.println("10-Tinh tong luong tu khoang thoi gian nhap:");
                 int chon = sc.nextInt();
                 switch (chon) {
                     case 1:
@@ -169,15 +170,25 @@ public class Run {
                         }
                         break;
                     case 8:
-                        ql.luuDATA(thangNam);
+                        System.out.println("Tong luong cua cac can bo thang :" + thangNam +" la: " + ql.tongLuong());
+                        ql.luuDATATongLuong(thangNam,ql.tongLuong());
                         break menu;
                     case 9:
                         System.out.println("-------------------");
                         String wtf9 = sc.nextLine();
-                        System.out.println("xem du lieu thang:");
+                        System.out.println("xem du lieu tong luong tu thang:");
                         String thang = sc.nextLine();
-                        ql.xemDATA(thang);
+                        ql.xemDATATongLuong(thang);
                         break;
+                    case 10:
+                        System.out.println("-------------------");
+                        String wtf10 = sc.nextLine();
+                        System.out.println("Nhap vao thang nam dau:");
+                        String thang_dau = sc.nextLine();
+                        System.out.println("Nhap vao thang nam cuoi:");
+                        String thang_cuoi = sc.nextLine();
+                        System.out.println("Tong luong can bo tu:" + thang_dau + " den " + thang_cuoi + ":");
+                        ql.tinhTongLuongTheoThangNam(thang_dau,thang_cuoi);
                 }
             } while (isRunning);
         }while (isRunning);

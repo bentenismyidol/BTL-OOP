@@ -1,3 +1,5 @@
+import java.util.Hashtable;
+
 public class CanBo {
 
     private int maCanBo;
@@ -7,6 +9,8 @@ public class CanBo {
     private double phuCap;
 
     private static double luongCoBan = 1750000;
+
+    private Hashtable<String,Double> luongTungThang = new Hashtable<>();
 
     public CanBo(int maCanBo,String hoten, String donViCongTac, double heSoLuong, double phuCap) {
         this.maCanBo = maCanBo;
@@ -66,6 +70,14 @@ public class CanBo {
 
     public static void setLuongCoBan(double luongCoBan) {
         CanBo.luongCoBan = luongCoBan;
+    }
+
+    public Hashtable<String, Double> getLuongTungThang() {
+        return luongTungThang;
+    }
+
+    public void setLuongTungThang(Hashtable<String, Double> luongTungThang) {
+        this.luongTungThang = luongTungThang;
     }
 
     public double tinhLuong() {

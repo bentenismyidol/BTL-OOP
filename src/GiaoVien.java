@@ -1,3 +1,4 @@
+import java.util.Hashtable;
 import java.util.Scanner;
 
 public class GiaoVien extends CanBo{
@@ -30,10 +31,10 @@ public class GiaoVien extends CanBo{
     }
 
     public double tinhLuong() {
-        return Long.valueOf((long) (super.getHeSoLuong() * getLuongCoBan() + super.getPhuCap() + soTietDay*getTienTietDay()));
+        return super.getHeSoLuong() * getLuongCoBan() + super.getPhuCap() + soTietDay*getTienTietDay();
     }
 
     public String inTTin() {
-        return "Mã cán bộ:" + this.getMaCanBo() + "\nTên giáo viên là: " + this.getHoten() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của giáo viên là: " + this.tinhLuong();
+        return "Mã cán bộ:" + this.getMaCanBo() + "\nTên giáo viên là: " + this.getHoten() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của giáo viên là: " + Long.valueOf((long)this.tinhLuong());
     }
 }

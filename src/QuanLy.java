@@ -6,7 +6,7 @@ public class QuanLy {
 
     private ArrayList<CanBo> dscb = new ArrayList<>();
 
-    Map<String,ArrayList<CanBo>> DATA = new HashMap<>();
+    Map<String,Double> DATA = new HashMap<>();
     public QuanLy() {
 
     }
@@ -25,7 +25,8 @@ public class QuanLy {
                 break;
             }
         }
-        return dscb;
+
+    return dscb;
     }
     public ArrayList suaGiaoVien(int macanbo,String ten,String dvct,double hsl,double pc,int std) {
         for (int i=0;i< dscb.size();i++) {
@@ -53,15 +54,42 @@ public class QuanLy {
             }
         }
     }
-    public Map luuDATA(String monthyear) {
-            DATA.put(monthyear, new ArrayList<>());
+
+    public long tongLuong() {
+        long tongLuong = 0;
+        for (CanBo i : dscb) {
+            double luong = i.tinhLuong();
+            tongLuong += luong;
+        }
+        return tongLuong;
+    }
+
+    public Map luuDATATongLuong(String monthyear,double tongLuong) {
+            DATA.put(monthyear,tongLuong);
         return DATA;
     }
-    public void xemDATA(String monthyear) {
-        for (Map.Entry<String,ArrayList<CanBo>> m : DATA.entrySet()) {
-            if (monthyear.equalsIgnoreCase(m.getKey())) {
-                System.out.println("Giu lieu thang:" + m.getKey());
-                System.out.println(m.getValue());
+    public void xemDATATongLuong(String monthyear) {
+        for (Map.Entry<String,Double> m : DATA.entrySet()) {
+            if (m.getKey().equalsIgnoreCase(monthyear)) {
+                System.out.println("tong luong can bo thang: " + monthyear + " la: " + m.getValue());
+            }
+        }
+    }
+    public void tinhTongLuongTheoThangNam(String monthyearOld,String monthyearNew) {
+        for (Map.Entry<String,Double> m : DATA.entrySet()) {
+            if (m.getKey().equalsIgnoreCase(monthyearOld) && m.getKey().equalsIgnoreCase(monthyearNew)){
+//                long sum =0L;
+//                for (double d : DATA.values()) {
+//                    sum += d;
+//                    System.out.println("Tong luong truong phai tra cho can bo tu " + monthyearOld +" den "+ monthyeaNew + " la :");
+//                    System.out.println(sum);
+//                }
+//                double sum = 0;
+//                sum = DATA.get(monthyearOld) + DATA.get(monthyearOld);
+                double luongCu = DATA.get(monthyearOld);
+                double luongMoi = DATA.get(monthyearNew);
+                System.out.println("Tong luong truong phai tra cho can bo tu " + monthyearOld +" den "+ monthyearNew + " la :");
+                System.out.println(luongCu);
             }
         }
     }

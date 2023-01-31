@@ -33,10 +33,10 @@ public class CanBoHC extends CanBo{
     }
 
     public double tinhLuong() {
-        return Long.valueOf((long) (super.getHeSoLuong()*getLuongCoBan() + super.getPhuCap() + soNgayCong*getTienNgayCong()));
+        return  super.getHeSoLuong()*getLuongCoBan() + super.getPhuCap() + soNgayCong*getTienNgayCong();
     }
 
     public String inTTin() {
-        return "Mã cán bộ:" + this.getMaCanBo() + "\nTên nhân viên hành chính là:" + this.getHoten() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của nhân viên hành chính là: " + BigDecimal.valueOf(this.tinhLuong())+"";
+        return "Mã cán bộ:" + this.getMaCanBo() + "\nTên nhân viên hành chính là:" + this.getHoten() + "\nTrực thuộc đơn vị công tác: " + this.getDonViCongTac() + "\nLương của nhân viên hành chính là: " + Long.valueOf((long)this.tinhLuong())+"";
     }
 }
