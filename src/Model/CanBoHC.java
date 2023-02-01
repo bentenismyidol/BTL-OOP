@@ -1,5 +1,5 @@
 package Model;
-
+//Nguyễn Thành Công thiết kế class CanBoHC kế thừa từ Canbo
 public class CanBoHC extends CanBo {
     private int soNgayCong;
 

@@ -1,5 +1,5 @@
 package Model;
-
+//Nguyễn Thành Công thiết kế class GiaoVien kế thừa từ Canbo
 public class GiaoVien extends CanBo {
     private int soTietDay;
 

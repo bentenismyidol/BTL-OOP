@@ -5,7 +5,7 @@ import Model.CanBoHC;
 import Model.GiaoVien;
 
 import java.util.*;
-
+//Nguyễn Viết Thành thiết kế QuanLy
 public class QuanLy {
 
     private ArrayList<CanBo> dscb = new ArrayList<>();
@@ -26,7 +26,11 @@ public class QuanLy {
         for (int i=0;i< dscb.size();i++) {
             if (macb.equalsIgnoreCase(dscb.get(i).getMaCanBo())) {
                 dscb.remove(dscb.get(i));
+                System.out.println("Xóa thành công cán bộ mang số mã " + macb);
                 break;
+            }
+            else {
+                System.out.println("Cán bộ không tồn tại!");
             }
         }
 

@@ -1,7 +1,7 @@
 package Model;
 
 import java.util.Hashtable;
-
+//Nguyễn Thành Công thiết kế class CanBo
 public class CanBo {
 
     private String maCanBo;

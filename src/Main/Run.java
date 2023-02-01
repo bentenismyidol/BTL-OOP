@@ -7,6 +7,9 @@ import Model.GiaoVien;
 
 import java.util.Scanner;
 
+import static java.lang.System.exit;
+////Nguyễn Viết Thành thiết kế Run
+
 public class Run {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -31,11 +34,13 @@ public class Run {
                 System.out.println("8-lưu tổng lương các cán bộ của tháng");
                 System.out.println("9-Xem tổng lương các cán bộ của tháng");
                 System.out.println("10-Tính tổng lương trong khoảng thời gian nhập vào:");
+                System.out.println("11-Thoát chương trình");
                 int chon = sc.nextInt();
                 switch (chon) {
                     case 1:
                         System.out.println("1-giáo viên");
-                        System.out.println("2-cán bộ hành chính\n");
+                        System.out.println("2-cán bộ hành chính");
+                        System.out.println("3-Back");
                         int chonloai = sc.nextInt();
                         if (chonloai == 1) {
                             System.out.println("-------------------");
@@ -75,6 +80,9 @@ public class Run {
                             ql.themCanBo(cbhc);
                             System.out.println("Thêm cán bộ hành chính [" + macbhc + " - " + tencbhc + "] thành công!\n");
                         }
+                        else if (chonloai == 3) {
+                            break;
+                        }
                         break;
                     case 2:
                         ql.inDanhSach();
@@ -85,7 +93,6 @@ public class Run {
                         System.out.println("Nhập vào cán bộ muốn xóa:");
                         String macb_de_xoa = sc.nextLine();
                         ql.xoaCanbo(macb_de_xoa);
-                        System.out.println("Xóa thành công cán bộ mang số mã " + macb_de_xoa);
                         System.out.println("");
                         break;
                     case 4:
@@ -93,6 +100,7 @@ public class Run {
                         String wtf4 = sc.nextLine();
                         System.out.println("1-giáo viên");
                         System.out.println("2-cán bộ hành chính");
+                        System.out.println("3-back");
                         int chonloai2 = sc.nextInt();
                         if (chonloai2 == 1) {
                             System.out.println("-------------------");
@@ -129,13 +137,17 @@ public class Run {
                             ql.suaCanBoHC(magv, sua_tengv, sua_dvct, sua_hsl, sua_phucap, sua_songaycong);
                             System.out.println("Sửa thành công\n");
                         }
+                        else if (chonloai2 == 3) {
+                            break;
+                        }
                         break;
                     case 5:
                         System.out.println("-------------------");
                         String wtf5 = sc.nextLine();
-                        System.out.println("sửa lương cơ bản:");
-                        System.out.println("sửa tiền tiết dạy:");
-                        System.out.println("sửa tiền ngày công:");
+                        System.out.println("1-sửa lương cơ bản:");
+                        System.out.println("2-sửa tiền tiết dạy:");
+                        System.out.println("3-sửa tiền ngày công:");
+                        System.out.println("4-back");
                         int chon5 = sc.nextInt();
                         if (chon5 == 1) {
                             System.out.println("Lương cơ bản cũ:");
@@ -158,6 +170,8 @@ public class Run {
                             double tnc_moi = sc.nextDouble();
                             CanBoHC.setTienNgayCong(tnc_moi);
                             System.out.println("Sửa thành công\n");
+                        } else if (chon5 == 4) {
+                            break;
                         }
                         break;
                     case 6:
@@ -207,6 +221,8 @@ public class Run {
                         String thang_cuoi = sc.nextLine();
                         ql.tinhTongLuongTheoThangNam(thang_dau,thang_cuoi);
                         System.out.println("");
+                    case 11:
+                        System.exit(0);
                 }
             } while (isRunning);
         }while (isRunning);
