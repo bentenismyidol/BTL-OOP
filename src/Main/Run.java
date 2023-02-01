@@ -34,7 +34,8 @@ public class Run {
                 System.out.println("8-lưu tổng lương các cán bộ của tháng");
                 System.out.println("9-Xem tổng lương các cán bộ của tháng");
                 System.out.println("10-Tính tổng lương trong khoảng thời gian nhập vào:");
-                System.out.println("11-Thoát chương trình");
+                System.out.println("11-Chuyển tiếp qua tháng/năm mới");
+                System.out.println("12-Thoát chương trình");
                 int chon = sc.nextInt();
                 switch (chon) {
                     case 1:
@@ -152,7 +153,7 @@ public class Run {
                         if (chon5 == 1) {
                             System.out.println("Lương cơ bản cũ:");
                             System.out.println(CanBo.getLuongCoBan());
-                            System.out.println("Nhập lương cơ bản cũ:");
+                            System.out.println("Nhập lương cơ bản mới:");
                             double lcb_moi = sc.nextDouble();
                             CanBo.setLuongCoBan(lcb_moi);
                             System.out.println("Sửa thành công\n");
@@ -200,14 +201,14 @@ public class Run {
                         }
                         break;
                     case 8:
-                        System.out.println("Tong luong cua cac can bo thang :" + thangNam +" la: " + ql.tongLuong());
+                        System.out.println("Tổng lương của các cán bộ tháng :" + thangNam +" là: " + ql.tongLuong());
                         ql.luuDATATongLuong(thangNam,ql.tongLuong());
                         System.out.println("");
-                        break menu;
+                        break;
                     case 9:
                         System.out.println("-------------------");
                         String wtf9 = sc.nextLine();
-                        System.out.println("xem du lieu tong luong tu thang:");
+                        System.out.println("xem dữ liệu tổng lương từ tháng:");
                         String thang = sc.nextLine();
                         ql.xemDATATongLuong(thang);
                         System.out.println("");
@@ -215,13 +216,15 @@ public class Run {
                     case 10:
                         System.out.println("-------------------");
                         String wtf10 = sc.nextLine();
-                        System.out.println("Nhap vao thang nam dau:");
+                        System.out.println("Nhập vào tháng năm đầu:");
                         String thang_dau = sc.nextLine();
-                        System.out.println("Nhap vao thang nam cuoi:");
+                        System.out.println("Nhập vào tháng năm cuối:");
                         String thang_cuoi = sc.nextLine();
                         ql.tinhTongLuongTheoThangNam(thang_dau,thang_cuoi);
                         System.out.println("");
                     case 11:
+                        break menu;
+                    case 12:
                         System.exit(0);
                 }
             } while (isRunning);

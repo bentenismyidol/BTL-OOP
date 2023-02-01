@@ -60,9 +60,6 @@ public class QuanLy {
             {
                 System.out.println(dscb.get(i).inTTin());
             }
-            else {
-                System.out.println("cán bộ muốn tìm không tồn tại");
-            }
         }
     }
 
