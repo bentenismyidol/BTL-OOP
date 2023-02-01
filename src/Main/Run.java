@@ -54,7 +54,7 @@ public class Run {
                             int sotietday = sc.nextInt();
                             CanBo gv = new GiaoVien(magv, tengv, dvctgv, hslgv, phucapgv, sotietday);
                             ql.themCanBo(gv);
-                            System.out.println("Thêm giáo viên " + magv + " - " + tengv + " thành công!\n");
+                            System.out.println("Thêm giáo viên [" + magv + " - " + tengv + "] thành công!\n");
 
                         } else if (chonloai == 2) {
                             System.out.println("-------------------");
@@ -73,7 +73,7 @@ public class Run {
                             int songaycong = sc.nextInt();
                             CanBo cbhc = new CanBoHC(macbhc, tencbhc, dvctcbhc, hslcbhc, phucapcbhc, songaycong);
                             ql.themCanBo(cbhc);
-                            System.out.println("Thêm cán bộ hành chính " + macbhc + " - " + tencbhc + " thành công!\n");
+                            System.out.println("Thêm cán bộ hành chính [" + macbhc + " - " + tencbhc + "] thành công!\n");
                         }
                         break;
                     case 2:
@@ -83,8 +83,9 @@ public class Run {
                         System.out.println("-------------------");
                         String wtf3 = sc.nextLine();
                         System.out.println("Nhập vào cán bộ muốn xóa:");
-                        String ten_de_xoa = sc.nextLine();
-                        ql.xoaCanbo(ten_de_xoa);
+                        String macb_de_xoa = sc.nextLine();
+                        ql.xoaCanbo(macb_de_xoa);
+                        System.out.println("Xóa thành công cán bộ mang số mã " + macb_de_xoa);
                         System.out.println("");
                         break;
                     case 4:

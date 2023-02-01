@@ -22,9 +22,9 @@ public class QuanLy {
         return true;
     }
 
-    public ArrayList<CanBo> xoaCanbo(String ten) {
+    public ArrayList<CanBo> xoaCanbo(String macb) {
         for (int i=0;i< dscb.size();i++) {
-            if (ten.equalsIgnoreCase(dscb.get(i).getHoten())) {
+            if (macb.equalsIgnoreCase(dscb.get(i).getMaCanBo())) {
                 dscb.remove(dscb.get(i));
                 break;
             }
